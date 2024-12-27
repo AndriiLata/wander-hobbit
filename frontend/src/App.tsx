@@ -1,11 +1,21 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-const App: React.FC = () => {
+import MainLayout from './components/MainLayout';
+import Events from './pages/Events';
+import CreateEvent from './pages/CreateEvent';
+import Profile from './pages/Profile';
+
+function App() {
   return (
-    <div className="flex justify-center items-center h-screen bg-base-200">
-      <button className="btn btn-error">Click Me</button>
-    </div>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Events />} />
+        <Route path="/create" element={<CreateEvent />} />
+        <Route path="/profile" element={<Profile />} />
+      </Route>
+    </Routes>
   );
-};
+}
 
 export default App;
